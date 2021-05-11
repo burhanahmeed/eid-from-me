@@ -1,8 +1,17 @@
 import Fonts from '../staticApi/Fontfamily';
+import Messages from '../staticApi/Messages';
 
 export default function Sidebar({payload, changePayload}) {
   const onChange = (val) => {
     changePayload(val);
+  }
+  const setText = (val) => {
+    changePayload({
+      target: {
+        value: val.target.value,
+        name: 'text'
+      }
+    })
   }
   return (
     <>
@@ -14,6 +23,19 @@ export default function Sidebar({payload, changePayload}) {
         <label className="form-label">Your Eid greetings</label>
         <textarea onChange={(e) => onChange(e)} name="text" value={payload.text} className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
+      <div className="mb-3">
+        <label>Message lists</label>
+        <select onChange={(e) => setText(e)} name="messages" value={payload.fontfamily} className="form-select mb-3" aria-label="Default select example">
+          {
+            Messages.map((font, i) => {
+              return (
+                <option key={i} value={font.text}>{font.name}</option>
+              )
+            })
+          }
+        </select>
+      </div>
+      
       <hr className="dropdown-divider my-5"></hr>
       <select onChange={(e) => onChange(e)} name="fontfamily" value={payload.fontfamily} className="form-select mb-3" aria-label="Default select example">
         {

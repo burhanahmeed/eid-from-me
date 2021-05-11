@@ -2,6 +2,7 @@ import Editor from 'components/Editor';
 import { useRouter } from "next/router";
 import { useEffect, useState } from 'react';
 import Head from 'next/head'
+import { decode } from 'js-base64';
 
 export default function Prev () {
   const router = useRouter();
@@ -9,7 +10,7 @@ export default function Prev () {
   const queryid = router.query.id;
   useEffect(() => {
     if (queryid) {
-      const p = window.atob(queryid);
+      const p = decode(queryid);
       if (p) {
         setPayload(JSON.parse(p))
       }

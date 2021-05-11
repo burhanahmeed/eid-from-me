@@ -5,6 +5,7 @@ import { useState } from 'react';
 import * as htmlToImage from 'html-to-image';
 import { toPng } from 'html-to-image';
 import download from 'downloadjs';
+import { encode } from 'js-base64';
 
 import Sidebar from "components/Sidebar"
 import Editor from 'components/Editor';
@@ -40,7 +41,8 @@ export default function Home({baseurl}) {
   }
   const [showAlert, setShowAlert] = useState(false);
   const getUrl = () => {
-    let code = window.btoa(JSON.stringify(payload));
+    let string = JSON.stringify(payload);
+    let code = encode(string);
     const urls = `${url}/prev?id=${code}`;
     navigator.clipboard.writeText(urls);
     setShowAlert(true);
