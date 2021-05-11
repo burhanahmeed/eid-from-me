@@ -1,3 +1,12 @@
+/* all font */
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
 html,
 body {
   padding: 0;
@@ -13,4 +22,54 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.wrapper-backdrop-editor {
+  height: calc(100vh - 300px);
+  width: 800px;
+}
+.wrapper-backdrop-live {
+  
+}
+.wrapper-backdrop {
+  background-color: bisque;
+}
+.bg-image {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.text-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.default-fontfamily {
+  font-family: 'Itim', cursive;
+}
+.dancing {
+  font-family: 'Dancing Script', cursive;
+}
+.pacifico {
+  font-family: 'Pacifico', cursive;
+}
+.courgette {
+  font-family: 'Courgette', cursive;
+}
+.kalam {
+  font-family: 'Kalam', cursive;
+}
+.merienda {
+  font-family: 'Merienda', cursive;
+}
+.cookie {
+  font-family: 'Cookie', cursive;
 }
