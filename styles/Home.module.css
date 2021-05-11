@@ -114,6 +114,9 @@
 }
 
 @media (max-width: 460px) {
+  .main {
+    padding: 1rem 0;
+  }
   .footer {
     display: block;
   }

@@ -10,7 +10,9 @@ export default function Prev () {
   const queryid = router.query.id;
   useEffect(() => {
     if (queryid) {
-      const p = decode(queryid);
+      let filtered = queryid.replace(/ /g, '+');
+      const p = decode(filtered);
+      // console.log(p);
       if (p) {
         setPayload(JSON.parse(p))
       }

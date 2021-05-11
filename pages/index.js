@@ -43,6 +43,7 @@ export default function Home({baseurl}) {
   const getUrl = () => {
     let string = JSON.stringify(payload);
     let code = encode(string);
+    console.log(code);
     const urls = `${url}/prev?id=${code}`;
     navigator.clipboard.writeText(urls);
     setShowAlert(true);
