@@ -72,12 +72,15 @@ export default function Home({baseurl}) {
       <main className={`${styles.main} default-fontfamily`}>
         <div className="d-flex">
           <div>
+            <div className="d-block d-md-none alert alert-primary" role="alert">
+              Use desktop for better experience!
+            </div>
             <div style={{height: '400px', overflowY: 'auto'}}>
               <Sidebar payload={payload} changePayload={changePayload} />
             </div>
             <div className="mb-3">
               <button onClick={() => getUrl()} className="btn btn-sm btn-primary me-2">Copy URL</button>
-              <button onClick={() => downloadImage()} className="btn btn-sm btn-primary">Download card</button>
+              <button onClick={() => downloadImage()} className="d-none d-md-inline-block btn btn-sm btn-primary">Download card</button>
             </div>
             {
               showAlert && (
@@ -87,7 +90,7 @@ export default function Home({baseurl}) {
               )
             }
           </div>
-          <div className="ms-5 overflow-y-auto">
+          <div className="ms-5 overflow-y-auto d-none d-md-block">
             <div id="card-image">
               <Editor payload={payload} editor={true} />
             </div>
