@@ -37,6 +37,7 @@ export default function Sidebar({payload, changePayload}) {
       </div>
       
       <hr className="dropdown-divider my-5"></hr>
+      <label className="form-label">Font family</label>
       <select onChange={(e) => onChange(e)} name="fontfamily" value={payload.fontfamily} className="form-select mb-3" aria-label="Default select example">
         {
           Fonts.map((font, i) => {
@@ -47,7 +48,7 @@ export default function Sidebar({payload, changePayload}) {
         }
       </select>
       <div className="mb-3">
-        <label className="form-label">Background URL</label>
+        <label className="form-label">Background Image</label>
         <input onChange={(e) => onChange(e)} name="bgImage" value={payload.bgImage} type="text" className="form-control" id="exampleFormControlInput1" placeholder="image url" />
       </div>
       <div className="mb-3">
