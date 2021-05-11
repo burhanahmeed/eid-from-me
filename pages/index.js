@@ -107,7 +107,7 @@ export default function Home({baseurl}) {
           </span>
         </a>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://github.com/burhanahmeed/eid-from-me"
           target="_blank"
           rel="noopener noreferrer"
         >
