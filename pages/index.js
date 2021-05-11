@@ -60,7 +60,7 @@ export default function Home({baseurl}) {
     <div className={styles.container}>
       <Head>
         <title>Eid From Me</title>
-        <meta name="description" content="Eid Mubarak May Allah accept our dua, fast, prayer, and all of our good deeds in the Ramadhan." />
+        <meta name="description" content="Eid Mubarak May Allah accepts our dua, fast, prayer, and all of our good deeds in the Ramadhan." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
