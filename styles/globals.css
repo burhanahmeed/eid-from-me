@@ -29,16 +29,22 @@ a {
   width: 800px;
 }
 .wrapper-backdrop-live {
-  
+  width: 100%;
+  min-height: 100vh;
 }
 .wrapper-backdrop {
   background-color: bisque;
 }
 .bg-image {
-  height: 100%;
   width: 100%;
   background-position: center;
   background-size: cover;
+}
+.bg-image-editor {
+  height: 100%;
+}
+.bg-image-live {
+  height: 100vh;
 }
 
 .text-section {

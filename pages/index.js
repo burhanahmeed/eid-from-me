@@ -6,7 +6,17 @@ import { useState } from 'react';
 import Sidebar from "components/Sidebar"
 import Editor from 'components/Editor';
 
-export default function Home() {
+export async function getStaticProps() {
+  const baseurl = process.env.BASE_URL;
+  return {
+    props: {
+      baseurl 
+    }
+  }
+}
+
+export default function Home({baseurl}) {
+  const url = baseurl;
   const [payload, setPayload] = useState({
     from: 'Ahmed & Fams',
     text: 'Eid Mubarak! May this special day bring peace, happiness and prosperity to everyone.',
@@ -25,10 +35,15 @@ export default function Home() {
       }
     })
   }
+  const [showAlert, setShowAlert] = useState(false);
   const getUrl = () => {
-    console.log('code');
     let code = window.btoa(JSON.stringify(payload));
-    console.log(code);
+    const urls = `${url}/prev?id=${code}`;
+    navigator.clipboard.writeText(urls);
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 1500);
   }
   return (
     <div className={styles.container}>
@@ -49,12 +64,19 @@ export default function Home() {
             <div style={{height: '400px', overflowY: 'auto'}}>
               <Sidebar payload={payload} changePayload={changePayload} />
             </div>
-            <div>
+            <div className="mb-3">
               <button onClick={() => getUrl()} className="btn btn-sm btn-primary">Copy URL</button>
             </div>
+            {
+              showAlert && (
+                <div className="alert alert-primary" role="alert">
+                  Copied!
+                </div>
+              )
+            }
           </div>
           <div className="ms-5 overflow-y-auto">
-            <Editor payload={payload} />
+            <Editor payload={payload} editor={true} />
           </div>
         </div>
       </main>
