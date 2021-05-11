@@ -20,7 +20,7 @@ export default function Prev () {
     <>
       <Head>
         <title>Eid From {payload.from}</title>
-        <meta name="description" content="Eid Mubarak May Allah accept our dua, fast, prayer, and all of our good deeds in the Ramadhan." />
+        <meta name="description" content="Eid Mubarak May Allah accepts our dua, fast, prayer, and all of our good deeds in the Ramadhan." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Editor payload={payload} editor={false} />
