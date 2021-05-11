@@ -2,6 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useState } from 'react';
+import * as htmlToImage from 'html-to-image';
+import { toPng } from 'html-to-image';
+import download from 'downloadjs';
 
 import Sidebar from "components/Sidebar"
 import Editor from 'components/Editor';
@@ -45,6 +48,12 @@ export default function Home({baseurl}) {
       setShowAlert(false);
     }, 1500);
   }
+  const downloadImage = () => {
+    htmlToImage.toPng(document.getElementById('card-image'))
+    .then(function (dataUrl) {
+      download(dataUrl, 'my-node.png');
+    });
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -65,7 +74,8 @@ export default function Home({baseurl}) {
               <Sidebar payload={payload} changePayload={changePayload} />
             </div>
             <div className="mb-3">
-              <button onClick={() => getUrl()} className="btn btn-sm btn-primary">Copy URL</button>
+              <button onClick={() => getUrl()} className="btn btn-sm btn-primary me-2">Copy URL</button>
+              <button onClick={() => downloadImage()} className="btn btn-sm btn-primary">Download card</button>
             </div>
             {
               showAlert && (
@@ -76,7 +86,9 @@ export default function Home({baseurl}) {
             }
           </div>
           <div className="ms-5 overflow-y-auto">
-            <Editor payload={payload} editor={true} />
+            <div id="card-image">
+              <Editor payload={payload} editor={true} />
+            </div>
           </div>
         </div>
       </main>
